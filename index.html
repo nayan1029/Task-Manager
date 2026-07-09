@@ -1,0 +1,129 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Manager Task Management</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <main class="app-shell">
+      <section id="loginView" class="panel auth-panel">
+        <aside class="profile-panel">
+          <div class="project-icon" aria-hidden="true">
+            <span></span>
+            <span></span>
+            <span></span>
+          </div>
+          <p class="eyebrow">About Developer</p>
+          <h2>Nayan Shukla</h2>
+          <p>
+            I am a 4th year B.Tech Engineering student in Computer Science and Engineering,
+            from the 2023 to 2027 batch.
+          </p>
+          <p>
+            This manager task management project provides secure manager login,
+            manager registration, and simple task tracking with completion status.
+          </p>
+        </aside>
+
+        <div class="login-content">
+          <p class="eyebrow">Manager Access</p>
+          <h1>Login</h1>
+          <p class="creator-credit">Created by Nayan</p>
+          <p class="muted">Only the manager account can open task management.</p>
+
+          <form id="loginForm" class="form">
+            <label for="managerId">Manager ID</label>
+            <input id="managerId" name="managerId" type="text" autocomplete="username" required />
+
+            <label for="password">Password</label>
+            <input id="password" name="password" type="password" autocomplete="current-password" required />
+
+            <p id="loginError" class="error" role="alert"></p>
+            <button type="submit">Login</button>
+            <button id="showRegisterBtn" class="secondary" type="button">Register New Manager</button>
+          </form>
+        </div>
+      </section>
+
+      <section id="registerView" class="panel auth-panel hidden">
+        <div>
+          <p class="eyebrow">Manager Access</p>
+          <h1>Register Manager</h1>
+          <p class="creator-credit">Created by Nayan</p>
+          <p class="muted">Create a new manager login for task management.</p>
+        </div>
+
+        <form id="registerForm" class="form">
+          <label for="newManagerId">New Manager ID</label>
+          <input id="newManagerId" name="newManagerId" type="text" autocomplete="username" required />
+
+          <label for="newPassword">Password</label>
+          <input id="newPassword" name="newPassword" type="password" autocomplete="new-password" minlength="6" required />
+
+          <label for="confirmPassword">Confirm Password</label>
+          <input
+            id="confirmPassword"
+            name="confirmPassword"
+            type="password"
+            autocomplete="new-password"
+            minlength="6"
+            required
+          />
+
+          <p id="registerMessage" class="form-message" role="alert"></p>
+          <button type="submit">Create Manager</button>
+          <button id="backToLoginBtn" class="secondary" type="button">Back to Login</button>
+        </form>
+      </section>
+
+      <section id="taskView" class="panel task-panel hidden">
+        <header class="task-header">
+          <div>
+            <p class="eyebrow">Manager Dashboard</p>
+            <h1>Task Management</h1>
+            <p class="creator-credit">Created by Nayan</p>
+            <p id="activeManager" class="muted compact-text"></p>
+          </div>
+          <div class="header-actions">
+            <button id="logoutBtn" class="secondary" type="button">Logout</button>
+          </div>
+        </header>
+
+        <form id="taskForm" class="task-form">
+          <div>
+            <label for="taskTitle">Task title</label>
+            <input id="taskTitle" name="taskTitle" type="text" placeholder="Enter task title" required />
+          </div>
+
+          <div>
+            <label for="taskStatus">Completed or not</label>
+            <select id="taskStatus" name="taskStatus" required>
+              <option value="not_completed">Not completed</option>
+              <option value="completed">Completed</option>
+            </select>
+          </div>
+
+          <button type="submit">Add Task</button>
+        </form>
+
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr>
+                <th>Title</th>
+                <th>Status</th>
+                <th>Action</th>
+              </tr>
+            </thead>
+            <tbody id="taskTableBody"></tbody>
+          </table>
+        </div>
+      </section>
+
+    </main>
+
+    <script src="script.js"></script>
+  </body>
+</html>
